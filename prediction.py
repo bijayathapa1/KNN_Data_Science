@@ -1,14 +1,14 @@
 import KNN_model
 import joblib
 
-def predict_breast_cancer(input_data):
+def predict_breast_cancer(user_input):
     # Load the trained model, scaler, and label encoder
     knn_model = joblib.load('logistic_regression_model.joblib')
     scaler = joblib.load('Breast_cancer_scaler.joblib')
     label_encoder = joblib.load('Breast_cancer_label_encoder.joblib')
     
     # Preprocess the input data
-    input_data_scaled = scaler.transform([input_data])
+    input_data_scaled = scaler.transform([user_input])
     
     # Make prediction
     prediction = knn_model.predict(input_data_scaled)

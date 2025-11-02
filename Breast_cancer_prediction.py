@@ -41,14 +41,14 @@ symmetry_worst = st.number_input("Symmetry Worst")
 fractal_dimension_worst = st.number_input("Fractal Dimension Worst")
 
 btn=st.button("Predict Breast Cancer")
-data = np.array([radius_mean, texture_mean, perimeter_mean, area_mean, smoothness_mean, compactness_mean,
+inference_data = np.array([radius_mean, texture_mean, perimeter_mean, area_mean, smoothness_mean, compactness_mean,
                  concavity_mean, concave_points_mean, symmetry_mean, fractal_dimension_mean, radius_se, texture_se,
                  perimeter_se, area_se, smoothness_se, compactness_se, concavity_se, concave_points_se, symmetry_se, fractal_dimension_se,
                  radius_worst, texture_worst, perimeter_worst, area_worst, smoothness_worst, compactness_worst, concavity_worst,
                  concave_points_worst, symmetry_worst, fractal_dimension_worst])
 
 if btn:
-    result=predict_breast_cancer(data)
+    result=predict_breast_cancer(inference_data)
     if result[0]=='M':
         st.error("The patient is likely to have Breast Cancer.")
     else:
